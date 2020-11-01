@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "206657675901",
+    "firebase_url": "https://mobildefterimm.firebaseio.com",
+    "project_id": "mobildefterimm",
+    "storage_bucket": "mobildefterimm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206657675901:android:0dab2f444b141cf941c714",
+        "android_client_info": {
+          "package_name": "com.omercikali.mobildefterim"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "206657675901-vmv7pvom2qlrvoos92laiin6bu8hdldd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC80ri5V3WAdaLSSSFhqY9yBTYmNExsDHQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "206657675901-vmv7pvom2qlrvoos92laiin6bu8hdldd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
