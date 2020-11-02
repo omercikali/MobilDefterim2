@@ -60,29 +60,20 @@ public class Login_page extends AppCompatActivity {
                 String passwordStr = passwordet.getText().toString();
                 if (!usernameStr.equals("")) {
                     singin(usernameStr, passwordStr);
-
                 } else {
-
                     Toast.makeText(getApplicationContext(), "lütfen geçerli bir e-posta giriniz", Toast.LENGTH_LONG).show();
                     progressBar.setVisibility(View.INVISIBLE);
                 }
-
             }
         });
     }
-
     public void withgoogle(View view) {
-
         Intent intent = new Intent(Login_page.this, With_google_sing_up.class);
         startActivity(intent);
         overridePendingTransition(R.anim.anim_in, R.anim.anim_out);
-
-
     }
 
     private void singin(String username, String password) {
-
-
         auth.signInWithEmailAndPassword(username, password)
                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
@@ -109,11 +100,8 @@ public class Login_page extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "telefon numarası veya şifre hatalı", Toast.LENGTH_LONG).show();
                     progressBar.setVisibility(View.INVISIBLE);
                 }
-
             }
         });
-
-
     }
 
     @Override

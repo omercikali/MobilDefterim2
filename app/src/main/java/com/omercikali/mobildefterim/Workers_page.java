@@ -2,6 +2,7 @@ package com.omercikali.mobildefterim;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,7 +25,7 @@ public class Workers_page extends AppCompatActivity {
             public void onClick(View v) {
 
                 database = FirebaseDatabase.getInstance();
-                mref = database.getReference("kisiler");
+                mref = database.getReference("kişiler");
                 Isciler isci = new Isciler("", "ali", "20");
                 Isciler isci2 = new Isciler("", "mehmet", "50");
                 Isciler isci3 = new Isciler("", "kerem", "21");
