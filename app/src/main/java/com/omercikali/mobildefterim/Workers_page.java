@@ -29,9 +29,13 @@ public class Workers_page extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseUser firebaseUser=auth.getCurrentUser();
+                String useremail=firebaseUser.getEmail();
+             useremail=   useremail.replace(".","!");
+                System.out.println(useremail);
 
                 database = FirebaseDatabase.getInstance();
-                mref = database.getReference("kişiler");
+                mref = database.getReference(useremail).child("kişiler");
                 Isciler isci = new Isciler("", "ali", "20");
                 Isciler isci2 = new Isciler("", "mehmet", "50");
                 Isciler isci3 = new Isciler("", "kerem", "21");
