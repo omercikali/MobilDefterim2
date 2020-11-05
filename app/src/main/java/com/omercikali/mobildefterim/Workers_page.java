@@ -1,9 +1,12 @@
 package com.omercikali.mobildefterim;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -23,8 +26,18 @@ ImageView add_worker,calendarIm;
         add_worker=findViewById(R.id.add_worker);
         calendarIm=findViewById(R.id.calendar_im);
 
+        new AlertDialog.Builder(Workers_page.this);
 
+add_worker.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Dialog dialog=new Dialog(Workers_page.this);
+        dialog.setTitle("İşçi Ekle");
+        dialog.setContentView(R.layout.add_worker_dialog);
+        dialog.show();
 
+    }
+});
 
 
     }
