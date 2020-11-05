@@ -14,7 +14,9 @@
         <activity android:name=".Soldgoods_page" />
         <activity android:name=".Fertilizier_page" />
         <activity android:name=".Advantage_Damage_page" />
-        <activity android:name=".splash_screen">
+        <activity android:name=".splash_screen"
+            android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
