@@ -33,6 +33,7 @@
             android:inputType="number"></EditText>
 
         <DatePicker
+            android:id="@+id/datePicker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"></DatePicker>
@@ -44,25 +45,23 @@
         android:layout_weight="1"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/vazgec_Tw"
+        <Button
+            android:id="@+id/vazgec_Btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/vazgec_btn"
-            android:gravity="center"
-            android:text="Vazgeç"
-            android:textSize="24sp" />
+            android:backgroundTint="#FF0000"
+            android:onClick="vazgecBtn"
+            android:text="vazgeç" />
 
-        <TextView
-            android:id="@+id/ekle_Tw"
+        <Button
+            android:id="@+id/ekle_Btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="9"
-            android:background="@drawable/ekle_btn"
-            android:gravity="center"
-            android:text="Ekle"
-            android:textSize="24sp" />
+            android:backgroundTint="#88FF00"
+            android:onClick="ekleBtn"
+            android:text="ekle" />
     </LinearLayout>
 
 </LinearLayout>
