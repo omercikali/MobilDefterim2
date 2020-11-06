@@ -7,6 +7,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -62,12 +63,11 @@ public class Workers_page extends AppCompatActivity {
         View layout = inflater.inflate(R.layout.add_worker_dialog, null);
 
 
-
         Button ekle_Btn = layout.findViewById(R.id.ekle_Btn);
         Button vazgec_Btn = layout.findViewById(R.id.vazgec_Btn);
-        EditText isci_adi_Et = layout.findViewById(R.id.isci_adi_ET);
-        EditText gunluk_calisma_Et = layout.findViewById(R.id.gunlukcalisma_Et);
-        EditText tarih_secimi_Et = layout.findViewById(R.id.tarihsecim_Et);
+        final EditText isci_adi_Et = layout.findViewById(R.id.isci_adi_ET);
+        final EditText gunluk_calisma_Et = layout.findViewById(R.id.gunlukcalisma_Et);
+        final DatePicker datePicker = layout.findViewById(R.id.datepicker);
 
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -84,7 +84,6 @@ public class Workers_page extends AppCompatActivity {
                 String isci_ismi = isci_adi_Et.getText().toString();
                 int gunluk_calisma_ucreti = Integer.parseInt(gunluk_calisma_Et.getText().toString());
 
-
                 //add data to firebase
                 auth = FirebaseAuth.getInstance();
                 firebaseUser = auth.getCurrentUser();
@@ -93,11 +92,11 @@ public class Workers_page extends AppCompatActivity {
 
                 database = FirebaseDatabase.getInstance();
                 mref = database.getReference(useremail).child("ISCILER");
-                Worker_model worker_model=new Worker_model(isci_ismi,gunluk_calisma_ucreti);
+                Worker_model worker_model = new Worker_model(isci_ismi, gunluk_calisma_ucreti);
                 mref.push().setValue(worker_model);
 
 
-                //  Toast.makeText(getApplicationContext(),"kayıt başarılı",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "kayıt başarılı", Toast.LENGTH_LONG).show();
 
 
                 finish();

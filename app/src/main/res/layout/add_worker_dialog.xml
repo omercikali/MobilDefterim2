@@ -24,15 +24,12 @@
             android:layout_height="wrap_content"
             android:hint="günlük çalışma ücretini giriniz"
             android:inputType="number"></EditText>
-
-        <EditText
-            android:id="@+id/tarihsecim_Et"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="tarih seçimi için tıklayınız"
-            android:inputType="textPersonName" />
-
+<DatePicker
+    android:id="@+id/datepicker"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:datePickerMode="calendar"></DatePicker>
     </LinearLayout>
 
     <LinearLayout

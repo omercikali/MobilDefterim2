@@ -25,10 +25,6 @@ public class splash_screen extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
         textView = findViewById(R.id.textView);
         uptadeaide=findViewById(R.id.imageView2);
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
-
-        myRef.setValue("Hello, World!");
 
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.anime);
         Animation sclaeanimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.scalea_nime);
