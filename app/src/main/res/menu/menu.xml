@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<item
+    android:id="@+id/isci_ekle_M"
+    app:showAsAction="always"
+    android:title="ekle"
+    android:icon="@drawable/isci_ekle"></item>
+<item
+    android:id="@+id/takvim_M"
+    app:showAsAction="always"
+    android:title="takvim"
+    android:icon="@drawable/calen_workerpage"></item>
+</menu>

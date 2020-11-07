@@ -3,30 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:theme="@style/Widget.AppCompat.SearchView.ActionBar"
     android:layout_height="match_parent"
     android:background="@drawable/orange"
-    tools:context=".Workers_page">
-
-    <ImageView
-        android:id="@+id/calendar_im"
-        android:layout_width="45dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="289dp"
-        app:layout_constraintEnd_toStartOf="@+id/add_worker"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/calen_workerpage" />
-
-    <ImageView
-        android:id="@+id/add_worker"
-        android:layout_width="45dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/isci_ekle" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    tools:context=".Workers_page"/>
