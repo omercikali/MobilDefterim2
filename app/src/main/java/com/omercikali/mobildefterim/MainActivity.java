@@ -1,5 +1,6 @@
 package com.omercikali.mobildefterim;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,12 +23,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.ab));
+
         infoimg = findViewById(R.id.Info_Tw);
         workerstw = findViewById(R.id.Workers_pageTw);
         soldgoodtw = findViewById(R.id.SoldGoods_tw);
         fertiliziertw = findViewById(R.id.Fertilizier_page_tw);
         advantage_damagetw = findViewById(R.id.Advantage_damage_tw);
         logout = findViewById(R.id.logoutim);
+
+        logout.setVisibility(View.INVISIBLE);
 
         infoimg.setOnClickListener(new View.OnClickListener() {
             @Override

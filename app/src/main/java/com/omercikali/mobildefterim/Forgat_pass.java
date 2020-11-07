@@ -1,6 +1,7 @@
 package com.omercikali.mobildefterim;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -25,6 +26,9 @@ public class Forgat_pass extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgat_pass);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.ab));
 
         auth = FirebaseAuth.getInstance();
         resetemailet = findViewById(R.id.resetemailet);

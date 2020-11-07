@@ -1,5 +1,6 @@
 package com.omercikali.mobildefterim;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -22,6 +23,8 @@ public class splash_screen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.ab));
         imageView = findViewById(R.id.imageView);
         textView = findViewById(R.id.textView);
         uptadeaide=findViewById(R.id.imageView2);

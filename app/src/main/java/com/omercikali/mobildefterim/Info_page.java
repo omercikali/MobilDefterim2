@@ -1,5 +1,6 @@
 package com.omercikali.mobildefterim;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,17 +15,22 @@ public class Info_page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_page);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.ab));
+
         imageView = findViewById(R.id.back_image);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Info_page.this,MainActivity.class);
+                Intent intent = new Intent(Info_page.this, MainActivity.class);
                 startActivity(intent);
                 finish();
-                overridePendingTransition(R.anim.turn_anim_in,R.anim.turn_anim_out);
+                overridePendingTransition(R.anim.turn_anim_in, R.anim.turn_anim_out);
             }
         });
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();

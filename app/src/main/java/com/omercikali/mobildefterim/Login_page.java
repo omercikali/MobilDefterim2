@@ -1,6 +1,7 @@
 package com.omercikali.mobildefterim;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -34,6 +35,8 @@ public class Login_page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.ab));
         progressBar = findViewById(R.id.progressBar);
         withgoogleaccount = findViewById(R.id.withgooglebtn);
         loginbutton = findViewById(R.id.button);

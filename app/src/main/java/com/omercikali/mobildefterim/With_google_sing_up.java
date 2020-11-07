@@ -1,6 +1,7 @@
 package com.omercikali.mobildefterim;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,6 +31,8 @@ public class With_google_sing_up extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_with_google_sing_up);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.ab));
 
         progressBar = findViewById(R.id.progressBar3);
         progressBar.setVisibility(View.INVISIBLE);
