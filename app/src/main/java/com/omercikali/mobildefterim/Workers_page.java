@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.ClipData;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,6 +17,9 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,20 +30,67 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Workers_page extends AppCompatActivity {
 
     private static final int DIALOG_ISCI_EKLE = 1;
     private static final int DIALOG_TARIH = 2;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workers_page);
 
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.ab));
+
+        try {
+            Listele();
+        } catch (Exception e) {
+            Toast.makeText(this, "herhangi bir kayıt bulunamadı", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
+
+    private void Listele() {
+
+
+        Veritabani db = new Veritabani(Workers_page.this);
+        List<WorkerModel> workerModelList = new ArrayList<WorkerModel>();
+        workerModelList = db.TumKayitlar();
+
+
+        for (WorkerModel workerModel : workerModelList) {
+            TableRow satir = new TableRow(Workers_page.this);
+            satir.setGravity(Gravity.CENTER);
+            satir.setOrientation(TableRow.HORIZONTAL);
+
+            TextView tv_tarih = new TextView(Workers_page.this);
+            tv_tarih.setPadding(2, 2, 2, 2);
+            tv_tarih.setTextColor(Color.BLUE);
+
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = new Date(workerModel.getTarih());
+            tv_tarih.setText(df.format(date) + "   ");
+
+            TextView tv_isci_ismi = new TextView(Workers_page.this);
+            tv_isci_ismi.setPadding(2, 2, 2, 2);
+            tv_isci_ismi.setTextColor(Color.BLUE);
+            tv_isci_ismi.setText(workerModel.getIsci_ismi() + "   ");
+
+            TextView tv_gunlukucret = new TextView(Workers_page.this);
+            tv_gunlukucret.setPadding(2, 2, 2, 2);
+            tv_gunlukucret.setTextColor(Color.BLUE);
+            tv_gunlukucret.setText(String.valueOf(workerModel.getGunluk_calisma_ucreti()));
+
+        }
+
 
     }
 
@@ -138,7 +190,7 @@ public class Workers_page extends AppCompatActivity {
 
                     dialog.dismiss();
 
-                }catch (Exception e){
+                } catch (Exception e) {
                     Toast.makeText(Workers_page.this, "ücret kısmı boş geçilemez", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -151,7 +203,7 @@ public class Workers_page extends AppCompatActivity {
             }
         });
 
-
+        Listele();
         return dialog;
     }
 
