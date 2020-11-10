@@ -3,6 +3,8 @@ package com.omercikali.mobildefterim;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
 import android.content.ClipData;
@@ -39,12 +41,40 @@ public class Workers_page extends AppCompatActivity {
     private static final int DIALOG_ISCI_EKLE = 1;
     private static final int DIALOG_TARIH = 2;
 
+    private RecyclerView rv;
+    private ArrayList<String> isciekle_list;
+    private BasicRVAdapter basicRVAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workers_page);
 
+        rv=findViewById(R.id.rv);
+        rv.setHasFixedSize(true);
+        rv.setLayoutManager(new LinearLayoutManager(Workers_page.this));
+        isciekle_list=new ArrayList<>();
+        isciekle_list.add("alimey");
+        isciekle_list.add("baban");
+        isciekle_list.add("anan");
+        isciekle_list.add("nenen");
+        isciekle_list.add("babişkon");
+        isciekle_list.add("nenişkon");
+        isciekle_list.add("dayıoglu");
+        isciekle_list.add("alimey");
+        isciekle_list.add("alimey");
+        isciekle_list.add("alimey");
+        isciekle_list.add("alimey");
+        isciekle_list.add("alimey");
+        isciekle_list.add("alimey");
+        isciekle_list.add("alimey");
+        isciekle_list.add("alimey");
+        isciekle_list.add("alimey");
+        isciekle_list.add("alimey");
+        isciekle_list.add("alimey");
+        isciekle_list.add("son");
+        basicRVAdapter=new BasicRVAdapter(Workers_page.this,isciekle_list);
+        rv.setAdapter(basicRVAdapter);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.ab));

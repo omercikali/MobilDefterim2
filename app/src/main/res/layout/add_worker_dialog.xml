@@ -16,14 +16,18 @@
             android:id="@+id/isci_adi_ET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="işçi adını giriniz"></EditText>
+            android:hint="işçi adını giriniz"
+            android:textColor="#000000"
+            android:textColorHint="#777474"></EditText>
 
         <EditText
             android:id="@+id/gunluk_calisma_Et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="günlük çalışma ücretini giriniz"
-            android:inputType="number"></EditText>
+            android:inputType="number"
+            android:textColor="#000000"
+            android:textColorHint="#777474"></EditText>
 
         <DatePicker
             android:id="@+id/datepicker"
@@ -31,7 +35,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="25dp"
-            android:datePickerMode="calendar"></DatePicker>
+            android:calendarTextColor="#000000"
+            android:datePickerMode="calendar"
+            android:yearListSelectorColor="#090808"></DatePicker>
 
     </LinearLayout>
 
@@ -48,7 +54,8 @@
             android:layout_weight="1"
             android:backgroundTint="#FF0000"
             android:onClick="vazgecBtn"
-            android:text="vazgeç" />
+            android:text="vazgeç"
+            android:textColor="#000000" />
 
         <Button
             android:id="@+id/ekle_Btn"
@@ -57,7 +64,8 @@
             android:layout_weight="9"
             android:backgroundTint="#88FF00"
             android:onClick="ekleBtn"
-            android:text="ekle" />
+            android:text="ekle"
+            android:textColor="#000000" />
     </LinearLayout>
 
 </LinearLayout>
