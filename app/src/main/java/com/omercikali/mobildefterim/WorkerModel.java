@@ -13,6 +13,7 @@ public class WorkerModel {
         this.gunluk_calisma_ucreti = gunluk_calisma_ucreti;
         this.tarih = tarih;
     }
+    //_
 
     public String getIsci_ismi() {
         return isci_ismi;
