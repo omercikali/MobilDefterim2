@@ -62,24 +62,5 @@ public class Veritabani extends SQLiteOpenHelper {
         return id;
     }
 
-    public List<WorkerModel> TumKayitlar() {
 
-        SQLiteDatabase db = this.getReadableDatabase();
-        String[] sutunlar = new String[]{ISCI_ISMI, GUNLUK_UCRET, TARIH};
-        Cursor c = db.query(TABLO_ISMI, sutunlar, null, null, null, null, null);
-        int isci_sirano = c.getColumnIndex(ISCI_ISMI);
-        int gunluk_calismasirano = c.getColumnIndex(GUNLUK_UCRET);
-        int tarih_sirano = c.getColumnIndex(TARIH);
-        List<WorkerModel> workerModelList = new ArrayList<WorkerModel>();
-
-        for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
-
-            WorkerModel workerModel = new WorkerModel();
-            workerModel.setIsci_ismi(c.getString(isci_sirano));
-            workerModel.setGunluk_calisma_ucreti(c.getInt(gunluk_calismasirano));
-            workerModel.setTarih(c.getLong(tarih_sirano));
-        }
-        db.close();
-        return workerModelList;
-    }
 }

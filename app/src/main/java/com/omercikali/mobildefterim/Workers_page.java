@@ -41,8 +41,8 @@ public class Workers_page extends AppCompatActivity {
     private static final int DIALOG_ISCI_EKLE = 1;
     private static final int DIALOG_TARIH = 2;
     private RecyclerView rvvW;
-    private ArrayList<WorkerModel> iscilerliste;
-    private IscilerAdapter iadapter;
+    private ArrayList<WorkerModel> workerModelArrayList;
+    private IscılerAdaptor isciadapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,121 +50,27 @@ public class Workers_page extends AppCompatActivity {
         setContentView(R.layout.activity_workers_page);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.ab));
-//WorkersPage CAMELCASE
+        //WorkersPage CAMELCASE
+
         rvvW = findViewById(R.id.rvvW);
         rvvW.setHasFixedSize(true);
-        rvvW.setLayoutManager(new LinearLayoutManager(Workers_page.this));
-        iscilerliste = new ArrayList<>();
-        WorkerModel w1 = new WorkerModel("ali", 90, 1121212);
-        WorkerModel w5 = new WorkerModel("ali", 90, 1121212);
-        WorkerModel w6 = new WorkerModel("ali", 90, 1121212);
-        WorkerModel w7 = new WorkerModel("ali", 90, 1121212);
-        WorkerModel w8 = new WorkerModel("ali", 90, 1121212);
-        WorkerModel w9 = new WorkerModel("ali", 90, 1121212);
-        WorkerModel w10 = new WorkerModel("ali", 90, 1121212);
-        WorkerModel w11 = new WorkerModel("ali", 90, 1121212);
-        WorkerModel w12 = new WorkerModel("ali", 90, 1121212);
-        WorkerModel w13 = new WorkerModel("ali", 90, 1121212);
-        WorkerModel w14 = new WorkerModel("ali", 90, 1121212);
-        WorkerModel w15 = new WorkerModel("ali", 90, 1121212);
-        WorkerModel w16 = new WorkerModel("ali", 90, 1121212);
-        WorkerModel w17= new WorkerModel("ali", 90, 1121212);
-        WorkerModel w18 = new WorkerModel("ali", 90, 1121212);
-        WorkerModel w19 = new WorkerModel("ali", 90, 1121212);
-        WorkerModel w20 = new WorkerModel("ali", 90, 1121212);
-        WorkerModel w21 = new WorkerModel("ali", 90, 1121212);
-        WorkerModel w22 = new WorkerModel("ali", 90, 1121212);
-        WorkerModel w23= new WorkerModel("ali", 90, 1121212);
-        WorkerModel w24 = new WorkerModel("ali", 90, 1121212);
-        WorkerModel w25 = new WorkerModel("ali", 90, 1121212);
-        WorkerModel w26 = new WorkerModel("ali", 90, 1121212);
-        WorkerModel w27 = new WorkerModel("ali", 90, 1121212);
-        WorkerModel w28= new WorkerModel("ali", 90, 1121212);
-        WorkerModel w29= new WorkerModel("son  ", 150, 1121212);
-        WorkerModel w30= new WorkerModel("ali", 90, 1121212);
-        WorkerModel w31= new WorkerModel("ali", 90, 1121212);
-        WorkerModel w32 = new WorkerModel("mehmet", 110, 1121212);
-        WorkerModel w33 = new WorkerModel("kemal", 50, 1121212);
-        WorkerModel w34 = new WorkerModel("zübeyir", 170, 1121212);
-        iscilerliste.add(w1);
-        iscilerliste.add(w27);
-        iscilerliste.add(w28);
-        iscilerliste.add(w29);
-        iscilerliste.add(w5);
-        iscilerliste.add(w6);
-        iscilerliste.add(w7);
-        iscilerliste.add(w8);
-        iscilerliste.add(w9);
-        iscilerliste.add(w10);
-        iscilerliste.add(w11);
-        iscilerliste.add(w12);
-        iscilerliste.add(w13);
-        iscilerliste.add(w14);
-        iscilerliste.add(w15);
-        iscilerliste.add(w16);
-        iscilerliste.add(w17);
-        iscilerliste.add(w18);
-        iscilerliste.add(w19);
-        iscilerliste.add(w21);
-        iscilerliste.add(w22);
-        iscilerliste.add(w23);
-        iscilerliste.add(w24);
-        iscilerliste.add(w25);
-        iscilerliste.add(w34);
-        iadapter=new IscilerAdapter(Workers_page.this,iscilerliste);
-        rvvW.setAdapter(iadapter)   ;
-
-        try {
-            Listele();
-        } catch (Exception e) {
-            Toast.makeText(this, "herhangi bir kayıt bulunamadı", Toast.LENGTH_SHORT).show();
-        }
-
+        rvvW.setLayoutManager(new LinearLayoutManager(this));
+        workerModelArrayList=new ArrayList<>();
+        WorkerModel w1=new WorkerModel("ali",90,12121212);
+        WorkerModel w2=new WorkerModel("ali",90,12121212);
+        WorkerModel w3=new WorkerModel("ali",90,12121212);
+        workerModelArrayList.add(w1);
+        workerModelArrayList.add(w2);
+        workerModelArrayList.add(w3);
+        isciadapter= new IscılerAdaptor(this,workerModelArrayList);
+        rvvW.setAdapter(isciadapter);
 
     }
-
-    private void Listele() {
-
-
-        Veritabani db = new Veritabani(Workers_page.this);
-        List<WorkerModel> workerModelList = new ArrayList<WorkerModel>();
-        workerModelList = db.TumKayitlar();
-
-
-        for (WorkerModel workerModel : workerModelList) {
-            TableRow satir = new TableRow(Workers_page.this);
-            satir.setGravity(Gravity.CENTER);
-            satir.setOrientation(TableRow.HORIZONTAL);
-
-            TextView tv_tarih = new TextView(Workers_page.this);
-            tv_tarih.setPadding(2, 2, 2, 2);
-            tv_tarih.setTextColor(Color.BLUE);
-
-            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-            Date date = new Date(workerModel.getTarih());
-            tv_tarih.setText(df.format(date) + "   ");
-
-            TextView tv_isci_ismi = new TextView(Workers_page.this);
-            tv_isci_ismi.setPadding(2, 2, 2, 2);
-            tv_isci_ismi.setTextColor(Color.BLUE);
-            tv_isci_ismi.setText(workerModel.getIsci_ismi() + "   ");
-
-            TextView tv_gunlukucret = new TextView(Workers_page.this);
-            tv_gunlukucret.setPadding(2, 2, 2, 2);
-            tv_gunlukucret.setTextColor(Color.BLUE);
-            tv_gunlukucret.setText(String.valueOf(workerModel.getGunluk_calisma_ucreti()));
-
-        }
-
-
-    }
-
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
-
 
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -182,7 +88,6 @@ public class Workers_page extends AppCompatActivity {
         }
 
     }
-
 
     @Override
     protected Dialog onCreateDialog(int id) {
@@ -268,7 +173,7 @@ public class Workers_page extends AppCompatActivity {
             }
         });
 
-        Listele();
+
         return dialog;
     }
 

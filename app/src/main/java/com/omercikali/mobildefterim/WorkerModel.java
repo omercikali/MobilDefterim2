@@ -1,6 +1,8 @@
 package com.omercikali.mobildefterim;
 
-public class WorkerModel {
+import java.io.Serializable;
+
+public class WorkerModel implements Serializable {
     private String isci_ismi;
     private int gunluk_calisma_ucreti;
     private long tarih;
