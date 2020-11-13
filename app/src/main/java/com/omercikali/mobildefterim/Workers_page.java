@@ -43,6 +43,7 @@ public class Workers_page extends AppCompatActivity {
     private RecyclerView rvvW;
     private ArrayList<WorkerModel> workerModelArrayList;
     private IscılerAdaptor isciadapter;
+    private Veritabani vt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,19 +52,22 @@ public class Workers_page extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.ab));
         //WorkersPage CAMELCASE
+       listele();
 
+    }
+
+    private void listele() {
+
+        vt=new Veritabani(this);
         rvvW = findViewById(R.id.rvvW);
         rvvW.setHasFixedSize(true);
         rvvW.setLayoutManager(new LinearLayoutManager(this));
-        workerModelArrayList=new ArrayList<>();
-        WorkerModel w1=new WorkerModel("ali",90,12121212);
-        WorkerModel w2=new WorkerModel("ali",90,12121212);
-        WorkerModel w3=new WorkerModel("ali",90,12121212);
-        workerModelArrayList.add(w1);
-        workerModelArrayList.add(w2);
-        workerModelArrayList.add(w3);
+        workerModelArrayList=new IscilerDao().tumisciler(vt);
+
         isciadapter= new IscılerAdaptor(this,workerModelArrayList);
         rvvW.setAdapter(isciadapter);
+
+
 
     }
 
@@ -110,14 +114,16 @@ public class Workers_page extends AppCompatActivity {
     }
 
     private Dialog getEkleDialog() {
+        listele();
+
 
         LayoutInflater inflater = LayoutInflater.from(this);
         View layout = inflater.inflate(R.layout.add_worker_dialog, null);
 
         Button kaydetBtn = layout.findViewById(R.id.ekle_Btn);
         Button vazgectn = layout.findViewById(R.id.vazgec_Btn);
-        final EditText isciismi_Et = layout.findViewById(R.id.isci_adi_ET);
-        final EditText gunlukucret_Et = layout.findViewById(R.id.gunluk_calisma_Et);
+         EditText isciismi_Et = layout.findViewById(R.id.isci_adi_ET);
+         EditText gunlukucret_Et = layout.findViewById(R.id.gunluk_calisma_Et);
         final DatePicker datePicker = layout.findViewById(R.id.datepicker);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(layout);
@@ -155,7 +161,10 @@ public class Workers_page extends AppCompatActivity {
                         Toast.makeText(Workers_page.this, "kayıt sırasında bir hata oluştu", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(Workers_page.this, "verileriniz kayıt edildi", Toast.LENGTH_SHORT).show();
+                        isciismi_Et.setText("");
+                        gunlukucret_Et.setText("");
                     }
+
 
 
                     dialog.dismiss();
@@ -165,6 +174,8 @@ public class Workers_page extends AppCompatActivity {
                 }
             }
         });
+
+
 
         vazgectn.setOnClickListener(new View.OnClickListener() {
             @Override

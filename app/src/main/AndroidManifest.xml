@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/circle"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mobildefterim">
-        <activity android:name=".DetayActivity"></activity>
         <activity android:name=".Info_page" />
         <activity android:name=".Workers_page" />
         <activity android:name=".Soldgoods_page" />
