@@ -9,14 +9,15 @@
         android:roundIcon="@mipmap/circle"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mobildefterim">
-        <activity android:name=".Info_page"></activity>
+        <activity android:name=".DetayActivity"></activity>
+        <activity android:name=".Info_page" />
         <activity android:name=".Workers_page" />
         <activity android:name=".Soldgoods_page" />
         <activity android:name=".Fertilizier_page" />
         <activity android:name=".Advantage_Damage_page" />
-        <activity android:name=".splash_screen"
-            android:screenOrientation="portrait"
-            >
+        <activity
+            android:name=".splash_screen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
